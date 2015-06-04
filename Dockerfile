@@ -10,14 +10,14 @@ ENV MYSQL_PASSWORD      password
 RUN apt-get update
 RUN apt-get install -y mysql-client
 
-ENV PHPMYADMIN_VERSION 4.4.4
+ENV PHPMYADMIN_VERSION 4.4.8
 ENV MAX_UPLOAD "50M"
 
-RUN wget http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-english.tar.bz2 \
- && tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-english.tar.bz2 -C / \
- && rm /phpMyAdmin-${PHPMYADMIN_VERSION}-english.tar.bz2 \
+RUN wget http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 \
+ && tar -xvjf /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 -C / \
+ && rm /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.bz2 \
  && rm -r /www \
- && mv /phpMyAdmin-${PHPMYADMIN_VERSION}-english /www
+ && mv /phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages /www
 
 ADD sources/config.inc.php /
 ADD sources/create_user.sql /
